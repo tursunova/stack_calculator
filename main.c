@@ -7,25 +7,25 @@
 
 int main(){
     char c;
-    stack *head_stack = NULL;
+    stack *head = NULL;
     while(1){
 	c = getchar();
 	if (c=='='){
-   	    print(head_stack);
+   	    print(head);
 	} else if (c == EOF) {
-	    while(head_stack){
-	        clear(&head_stack);
+	    while(head){
+	        clear(&head);
 	    }
 	    break;
 	} else if (c=='+')
 	{
-	    if (head_stack && head_stack->next)
+	    if (head && head->next)
 	    {
-		if (head_stack->sign == head_stack->next->sign)
+		if (head->sign == head->next->sign)
 		{
-		    sum(&head_stack);  
+		    sum(&head);  
 		} else {
-		    difference(&head_stack);
+		    difference(&head);
 		}
 	    } else {
 		printf("empty stack.\n");
@@ -33,26 +33,26 @@ int main(){
 	} else if (c=='-'){
 	    if ((c = getchar()) != '\n')
 	    {
-		number_read(&head_stack, c, '1');
+		number_read(&head, c, '1');
 		continue;
 	    }
-	    if (head_stack && head_stack->next)
+	    if (head && head->next)
             {
-		if (head_stack->sign != head_stack->next->sign)
+		if (head->sign != head->next->sign)
 		{
-		    sum(&head_stack); 
+		    sum(&head); 
 		} else {
-		    difference(&head_stack);
+		    difference(&head);
 		}
 	    } else {
 		printf("empty stack.\n");
 	    }
 	} else if (c=='*'){
-	    product(&head_stack);
+	    product(&head);
 	} else if (c=='/'){
-	    quotient(&head_stack);
+	    quotient(&head);
     	} else if (c != '\n'){
-	    number_read(&head_stack, c, '0');
+	    number_read(&head, c, '0');
         }
     }
 }
