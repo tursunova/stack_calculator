@@ -33,7 +33,7 @@ int main(){
 	} else if (c=='-'){
 	    if ((c = getchar()) != '\n')
 	    {
-		number_read(&head, c, '1');
+		read(&head, c, '1');
 		continue;
 	    }
 	    if (head && head->next)
@@ -52,7 +52,7 @@ int main(){
 	} else if (c=='/'){
 	    quotient(&head);
     	} else if (c != '\n'){
-	    number_read(&head, c, '0');
+	    read(&head, c, '0');
         }
     }
 }
